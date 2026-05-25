@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seyhan Cafe</title>
-    <!-- Modern tasarım için Tailwind CSS (CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Google Fonts - Poppins (Modern yazı tipi) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -16,82 +14,83 @@
 </head>
 <body class="bg-stone-100 text-stone-800 antialiased">
 
-    <!-- ÜST BANNER & KAFE ADI -->
     <header class="bg-neutral-900 text-white py-8 px-4 text-center rounded-b-3xl shadow-lg relative overflow-hidden">
-        <div class="absolute inset-0 bg-black/40 z-0"></div> <!-- Karartma katmanı -->
-        <div class="relative z-10">
+        <div class="absolute inset-0 bg-black/40 z-0"></div> <div class="relative z-10">
             <h1 id="cafe-name" class="text-3xl font-bold tracking-wide">Seyhan Cafe</h1>
             <p id="welcome-message" class="text-sm text-stone-300 mt-1">Dijital Menümüze Hoş Geldiniz.</p>
             
-            <!-- Masaya Özel Alan (URL'de masa varsa görünecek) -->
             <div id="table-badge" class="hidden inline-block mt-3 bg-amber-500 text-neutral-900 text-xs font-bold px-3 py-1 rounded-full shadow">
                 Masa: <span id="table-number">-</span>
             </div>
         </div>
     </header>
 
-    <!-- KATEGORİ BUTONLARI (Hızlı Erişim) -->
     <nav class="flex justify-center gap-2 my-6 px-4 overflow-x-auto no-scrollbar">
         <button onclick="filterCategory('all')" class="bg-amber-500 text-neutral-900 font-semibold px-4 py-2 rounded-full text-sm shadow transition active:scale-95">Hepsi</button>
         <button onclick="filterCategory('icecek')" class="bg-white text-stone-700 font-semibold px-4 py-2 rounded-full text-sm shadow transition active:scale-95">İçecekler</button>
         <button onclick="filterCategory('yiyecek')" class="bg-white text-stone-700 font-semibold px-4 py-2 rounded-full text-sm shadow transition active:scale-95">Yiyecek</button>
     </nav>
 
-    <!-- MENÜ LİSTESİ -->
     <main class="max-w-md mx-auto px-4 pb-12">
-        <div id="menu-container" class="grid gap-4">
-            <!-- Ürünler JavaScript ile buraya dinamik gelecek -->
-        </div>
+        <div id="menu-container" class="grid gap-5">
+            </div>
     </main>
 
-    <!-- FOOTER -->
     <footer class="text-center text-xs text-stone-400 pb-6">
         &copy; 2026 Dijital Menü Sistemi. Tüm hakları saklıdır.
     </footer>
 
-    <!-- JAVASCRIPT: ÖZELLEŞTİRME VE VERİ YÖNETİMİ -->
     <script>
-        // 1. MENÜ VERİLERİ (İstediğin gibi ekle/çıkar/değiştir)
+        // 1. MENÜ VERİLERİ
         const menuItems = [
-            { id: 1, name: "Çay", price: "30 TL", desc: "", cat: "icecek" },
-            { id: 1, name: "Kahve", price: "100 TL", desc: "", cat: "icecek" },
-            { id: 1, name: "Kola Grubu", price: "30 TL", desc: "", cat: "icecek" },
-            { id: 1, name: "Gazoz Çeşitleri", price: "30 TL", desc: "", cat: "icecek" },
-            { id: 2, name: "Menemen", price: "85 TL", desc: "", cat: "yiyecek" },
-            { id: 3, name: "Kahvaltı Tabağı", price: "120 TL", desc: "", cat: "yiyecek" },
-            { id: 4, name: "Kaşarlı Tost", price: "140 TL", desc: "", cat: "yiyecek" },
-            { id: 5, name: "Karışık Tost", price: "95 TL", desc: "", cat: "yiyecek" }
+            { id: 1, name: "Çay", price: "30 TL", desc: "Taze demlenmiş geleneksel Türk çayı.", cat: "icecek", img: "https://www.drfirat.com/wp-content/uploads/2020/04/vagecilmez-cay-69241eebefa1f-900x400.webp" },
+            { id: 2, name: "Kahve", price: "100 TL", desc: "Özenle seçilmiş çekirdeklerden sıcak kahve.", cat: "icecek", img: "https://www.kahvve.com/wp-content/uploads/2017/11/%C3%87ay-m%C4%B1-kahve-mi-hangisi-daha-faydal%C4%B1_01.jpg" },
+            { id: 3, name: "Kola Grubu", price: "90 TL", desc: "Kutu soğuk içecek seçenekleri.", cat: "icecek", img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=500&auto=format&fit=crop&q=80" },
+            { id: 4, name: "Gazoz Çeşitleri", price: "45 TL", desc: "Farklı aroma seçenekleriyle ferahlatıcı gazoz.", cat: "icecek", img: "https://atisbutikrestaurant.com.tr/wp-content/uploads/2021/07/meyveli-soda.jpg" },
+            { id: 5, name: "Menemen", price: "200 TL", desc: "Bol malzemeli, sıcak köy menemeni.", cat: "yiyecek", img: "https://d17wu0fn6x6rgz.cloudfront.net/img/w/tarif/ogt/ykvmayiswebsite23.webp" },
+            { id: 6, name: "Kahvaltı Tabağı", price: "250 TL", desc: "Zengin ve taze kahvaltılık çeşitleri.", cat: "yiyecek", img: "https://www.flashrestaurant.com.tr/wp-content/uploads/2012/06/DSC_0078.jpg" },
+            { id: 7, name: "Kaşarlı Tost", price: "180 TL", desc: "Çıtır ekmek arasında eriyen nefis kaşar peyniri.", cat: "yiyecek", img: "https://ersiba.com.tr/wp-content/uploads/2016/05/kasarli-tost.png" },
+            { id: 8, name: "Karışık Tost", price: "200 TL", desc: "Kasap sucuk ve kaşar peynirinin uyumu.", cat: "yiyecek", img: "https://tarifmotoru.com/storage//webcovers/meals/3/546_picture_1765381947.png" }
         ];
 
-        // 2. URL'DEN MASA NUMARASINI ALMA (Özelleştirme)
-        // Eğer link "siteadi.com/?masa=5" ise masa numarasını yakalar
+        // 2. URL'DEN MASA NUMARASINI ALMA
         const urlParams = new URLSearchParams(window.location.search);
         const masaNo = urlParams.get('masa');
 
         if (masaNo) {
             document.getElementById('table-badge').classList.remove('hidden');
             document.getElementById('table-number').innerText = masaNo;
-            
-            // Masaya özel karşılama mesajı (Özelleştirilebilir)
             document.getElementById('welcome-message').innerText = `Masa ${masaNo} için dijital menü`;
         }
 
-        // 3. MENÜYÜ EKRANA BASAN FONKSİYON
+        // 3. YENİ PREMIUM OVERLAY TASARIMLI MENÜ FONKSİYONU
         function renderMenu(items) {
             const container = document.getElementById('menu-container');
-            container.innerHTML = ""; // İçeriği temizle
+            container.innerHTML = ""; 
 
             items.forEach(item => {
                 const card = `
-                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-stone-200/60 flex justify-between items-center transition hover:shadow-md">
-                        <div class="pr-4">
-                            <h3 class="font-bold text-stone-900 text-base">${item.name}</h3>
-                            <p class="text-xs text-stone-500 mt-1 leading-relaxed">${item.desc}</p>
-                        </div>
-                        <div class="text-right min-w-[70px]">
-                            <span class="bg-stone-100 text-neutral-950 font-bold text-sm px-2.5 py-1.5 rounded-xl border border-stone-200">
-                                ${item.price}
-                            </span>
+                    <div class="relative h-32 rounded-2xl overflow-hidden shadow-md border border-stone-200/40 group active:scale-[0.99] transition duration-200">
+                        
+                        <img src="${item.img}" alt="${item.name}" class="absolute inset-0 w-full h-full object-cover">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-r from-black/20 via-black/60 to-black/85 z-10"></div>
+                        
+                        <div class="absolute inset-0 z-20 p-4 flex justify-between items-center gap-4 text-white">
+                            
+                            <div class="min-w-0 flex-1">
+                                <h3 class="font-bold text-lg tracking-wide drop-shadow-md">${item.name}</h3>
+                                <p class="text-xs text-stone-200 mt-1 leading-snug line-clamp-2 font-light drop-shadow-sm">
+                                    ${item.desc || 'Seyhan Cafe kalitesiyle taze olarak servis edilir.'}
+                                </p>
+                            </div>
+                            
+                            <div class="flex-shrink-0">
+                                <span class="bg-amber-500 text-neutral-905 font-bold text-sm px-3 py-2 rounded-xl shadow border border-amber-400/30">
+                                    ${item.price}
+                                </span>
+                            </div>
+
                         </div>
                     </div>
                 `;
@@ -101,7 +100,6 @@
 
         // 4. KATEGORİ FİLTRELEME
         function filterCategory(category) {
-            // Buton renklerini sıfırla ve aktif olanı boya
             const buttons = document.querySelectorAll('nav button');
             buttons.forEach(btn => {
                 btn.className = "bg-white text-stone-700 font-semibold px-4 py-2 rounded-full text-sm shadow transition active:scale-95";
