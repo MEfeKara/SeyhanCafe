@@ -28,7 +28,7 @@
                     <hr class="border-stone-800 my-2">
                     <div class="py-2 text-xs text-stone-400">
                         <span class="block font-bold text-stone-300 mb-1">📶 Dükkan Wi-Fi:</span>
-                        <span class="bg-stone-800 px-2 py-1 rounded text-amber-400 font-mono">seyhan1234</span>
+                        <span class="bg-stone-800 px-2 py-1 rounded text-amber-400 font-mono">seyhancafe44</span>
                     </div>
                     <div class="py-2 text-xs text-stone-400">
                         <span class="block font-bold text-stone-300 mb-1">🕒 Çalışma Saatleri:</span>
@@ -75,17 +75,21 @@
 
     <script>
         // 1. MENÜ VERİLERİ
+        // 1. MENÜ VERİLERİ (Güncellenmiş ve Düzenlenmiş Hali)
         const menuItems = [
-            { id: 1, name: "Çay", price: "30 TL", desc: "Taze demlenmiş geleneksel Türk çayı.", cat: "icecek", img: "https://www.drfirat.com/wp-content/uploads/2020/04/vagecilmez-cay-69241eebefa1f-900x400.webp" },
-            { id: 2, name: "Kahve", price: "100 TL", desc: "Özenle seçilmiş çekirdeklerden sıcak kahve.", cat: "icecek", img: "https://www.kahvve.com/wp-content/uploads/2017/11/%C3%87ay-m%C4%B1-kahve-mi-hangisi-daha-faydal%C4%B1_01.jpg" },
-            { id: 3, name: "Kola Grubu", price: "90 TL", desc: "Kutu soğuk içecek seçenekleri.", cat: "icecek", img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=500&auto=format&fit=crop&q=80" },
-            { id: 4, name: "Gazoz Çeşitleri", price: "45 TL", desc: "Farklı aroma seçenekleriyle ferahlatıcı gazoz.", cat: "icecek", img: "https://atisbutikrestaurant.com.tr/wp-content/uploads/2021/07/meyveli-soda.jpg" },
-            { id: 4, name: "Sade Soda", price: "30 TL", desc: "Sade sevenlere ferahlatıcı soda.", cat: "icecek", img: "Sadesoda.png" },
-            { id: 5, name: "Menemen", price: "200 TL", desc: "Bol malzemeli, sıcak köy menemeni.", cat: "yiyecek", img: "https://d17wu0fn6x6rgz.cloudfront.net/img/w/tarif/ogt/ykvmayiswebsite23.webp" },
-            { id: 6, name: "Kahvaltı Tabağı", price: "250 TL", desc: "Zengin ve taze kahvaltılık çeşitleri.", cat: "yiyecek", img: "https://www.flashrestaurant.com.tr/wp-content/uploads/2012/06/DSC_0078.jpg" },
-            { id: 7, name: "Kaşarlı Tost", price: "180 TL", desc: "Çıtır ekmek arasında eriyen nefis kaşar peyniri.", cat: "yiyecek", img: "https://ersiba.com.tr/wp-content/uploads/2016/05/kasarli-tost.png" },
-            { id: 8, name: "Karışık Tost", price: "200 TL", desc: "Kasap sucuk ve kaşar peynirinin uyumu.", cat: "yiyecek", img: "https://tarifmotoru.com/storage//webcovers/meals/3/546_picture_1765381947.png" }
-        ];
+    { id: 1, name: "Çay", price: "30 TL", desc: "Taze demlenmiş geleneksel Türk çayı.", cat: "icecek", img: "https://www.drfirat.com/wp-content/uploads/2020/04/vagecilmez-cay-69241eebefa1f-900x400.webp" },
+    { id: 2, name: "Kahve", price: "100 TL", desc: "Özenle seçilmiş çekirdeklerden sıcak kahve.", cat: "icecek", img: "https://www.kahvve.com/wp-content/uploads/2017/11/%C3%87ay-m%C4%B1-kahve-mi-hangisi-daha-faydal%C4%B1_01.jpg" },
+    { id: 3, name: "Su", price: "30 TL", desc: "İsteyene soğuk isteyene ılık seçeneğimizle ferahlatıcı su.", cat: "icecek", img: "su.png" },
+    { id: 4, name: "Kola Grubu", price: "90 TL", desc: "Kutu soğuk içecek seçenekleri.", cat: "icecek", img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=500&auto=format&fit=crop&q=80" },
+    { id: 5, name: "Gazoz Çeşitleri", price: "45 TL", desc: "Farklı aroma seçenekleriyle ferahlatıcı gazoz.", cat: "icecek", img: "https://atisbutikrestaurant.com.tr/wp-content/uploads/2021/07/meyveli-soda.jpg" },
+    { id: 6, name: "Ayran", price: "30 TL", desc: "Lıkır lıkır soğuk ayran.", cat: "icecek", img: "ayran.png" },
+    { id: 7, name: "Sade Soda", price: "30 TL", desc: "Sade sevenlere ferahlatıcı soda.", cat: "icecek", img: "Sadesoda.png" },
+    { id: 8, name: "Menemen", price: "200 TL", desc: "Bol malzemeli, sıcak köy menemeni.", cat: "yiyecek", img: "https://d17wu0fn6x6rgz.cloudfront.net/img/w/tarif/ogt/ykvmayiswebsite23.webp" },
+    { id: 9, name: "Köfte", price: "250 TL", desc: "Izgaradan taze çıkmış, nefis dükkan köftesi.", cat: "yiyecek", img: "köfte.png" },
+    { id: 10, name: "Kahvaltı Tabağı", price: "250 TL", desc: "Zengin ve taze kahvaltılık çeşitleri.", cat: "yiyecek", img: "https://www.flashrestaurant.com.tr/wp-content/uploads/2012/06/DSC_0078.jpg" },
+    { id: 11, name: "Kaşarlı Tost", price: "180 TL", desc: "Çıtır ekmek arasında eriyen nefis kaşar peyniri.", cat: "yiyecek", img: "https://ersiba.com.tr/wp-content/uploads/2016/05/kasarli-tost.png" },
+    { id: 12, name: "Karışık Tost", price: "200 TL", desc: "Kasap sucuk ve kaşar peynirinin uyumu.", cat: "yiyecek", img: "https://tarifmotoru.com/storage//webcovers/meals/3/546_picture_1765381947.png" }
+];
 
         // 2. URL'DEN MASA NUMARASINI ALMA VE MENÜ LİNKLERİNE BAĞLAMA
         const urlParams = new URLSearchParams(window.location.search);
