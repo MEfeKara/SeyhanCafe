@@ -3,113 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seyhan Cafe - Hoş Geldiniz</title>
+    <title>Seyhan Cafe</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,600;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <style>
-        body { font-family: 'Poppins', sans-serif; }
-        .swiper-pagination-bullet-active { background: #f59e0b !important; }
-    </style>
-</head>
-<body class="bg-stone-100 text-stone-800 antialiased min-h-screen flex flex-col justify-between">
 
+    <!-- Harici CSS Sayfamızı Bağlıyoruz -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- YAN AÇILIR MENÜ -->
     <div id="side-menu" class="fixed inset-0 z-50 pointer-events-none">
-        <div id="menu-overlay" onclick="toggleMenu()" class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
-        <div id="menu-content" class="absolute right-0 top-0 bottom-0 w-64 bg-neutral-900 text-white p-6 shadow-2xl transform translate-x-full transition-transform duration-300 pointer-events-auto flex flex-col justify-between">
+        <div id="menu-overlay" onclick="toggleMenu()" class="absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+        <div id="menu-content" class="card absolute right-0 top-0 bottom-0 w-64 p-6 transform translate-x-full transition-transform duration-300 pointer-events-auto flex flex-col justify-between">
             <div>
                 <div class="flex justify-between items-center mb-8">
-                    <h2 class="text-xl font-bold text-amber-500">Seyhan Cafe</h2>
-                    <button onclick="toggleMenu()" class="text-stone-400 hover:text-white text-2xl">&times;</button>
+                    <h2 class="font-serif text-2xl italic">Seyhan Cafe</h2>
+                    <button onclick="toggleMenu()" class="text-3xl transition bg-transparent border-0!">&times;</button>
                 </div>
                 <nav class="flex flex-col gap-4">
-                    <a id="nav-home" href="index.html" class="flex items-center gap-2 py-2 text-amber-400 transition font-bold">🏠 Ana Sayfa</a>
-                    <a id="nav-menu" href="menu.html" class="flex items-center gap-2 py-2 text-stone-300 hover:text-amber-400 transition font-medium">📖 Menü</a>
-                    <hr class="border-stone-800 my-2">
-                    <div class="py-2 text-xs text-stone-400">
-                        <span class="block font-bold text-stone-300 mb-1">📶 Dükkan Wi-Fi:</span>
-                        <span class="bg-stone-800 px-2 py-1 rounded text-amber-400 font-mono">seyhancafe44</span>
-                    </div>
-                    <div class="py-2 text-xs text-stone-400">
-                        <span class="block font-bold text-stone-300 mb-1">🕒 Çalışma Saatleri:</span>
-                        <span>08:00 - 20:00</span>
+                    <a id="nav-home" href="index.html" class="flex items-center gap-2 py-2 text-white transition font-bold tracking-wide">☕ Ana Sayfa</a>
+                    <a id="nav-menu" href="menu.html" class="flex items-center gap-2 py-2 transition font-medium tracking-wide">📖 Menü</a>
+                    <hr class="border-white/5 my-4">
+                    <div class="py-2 text-xs p-3 rounded-xl">
+                        <span class="block font-bold mb-1">📶 Wi-Fi Şifresi:</span>
+                        <span class="text-white font-mono text-sm">seyhancafe44</span>
                     </div>
                 </nav>
             </div>
-            <div class="text-[10px] text-stone-500 text-center border-t border-stone-800 pt-4">
-                Seyhan Cafe Dijital Menü v2.0
+            <div class="text-[10px] text-white/20 text-center border-t border-white/5 pt-4 tracking-widest">
+                #SEYHANCOFFEE
             </div>
         </div>
     </div>
 
-    <div class="max-w-md mx-auto w-full bg-stone-50 min-h-screen flex flex-col shadow-xl pb-6 relative">
-        
-        <button onclick="toggleMenu()" class="absolute top-4 right-4 z-30 bg-black/30 hover:bg-black/50 text-white p-2.5 rounded-xl border border-white/10 active:scale-95 transition">
+    <!-- MAIN WRAPPER -->
+    <div class="max-w-md mx-auto w-full min-h-screen flex flex-col pb-6 relative border-x border-white/5">
+
+        <!-- Hamburger Menü Butonu -->
+        <button onclick="toggleMenu()" class="absolute top-4 right-4 z-30 p-2.5 rounded-xl active:scale-95 transition">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
 
-        <div class="relative h-72 w-full overflow-hidden rounded-b-3xl shadow-lg">
+        <!-- ÜST ALAN: SLIDER -->
+        <div class="relative h-80 w-full overflow-hidden rounded-b-[2.5rem] border-b border-white/5">
             <div class="swiper mySwiper h-full w-full">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="1.jpg" class="w-full h-full object-cover" alt="Seyhan Cafe"></div>
-                    <div class="swiper-slide"><img src="2.jpg" class="w-full h-full object-cover" alt="Seyhan Cafe"></div>
-                    <div class="swiper-slide"><img src="3.jpg" class="w-full h-full object-cover" alt="Seyhan Cafe"></div>
-                    <div class="swiper-slide"><img src="4.jpg" class="w-full h-full object-cover" alt="Seyhan Cafe"></div>
+                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600&q=80" class="w-full h-full object-cover"></div>
+                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&q=80" class="w-full h-full object-cover"></div>
                 </div>
                 <div class="swiper-pagination z-20"></div>
             </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10 pointer-events-none"></div>
 
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20 z-10 pointer-events-none"></div>
-            <div class="absolute bottom-6 left-0 right-0 text-center z-20 pointer-events-none px-4">
-                <h1 class="text-3xl font-bold tracking-wide text-white drop-shadow-md">Seyhan Cafe</h1>
-                <p id="table-text" class="text-xs text-amber-400 mt-1 font-semibold tracking-wider uppercase">Esnafın ve Lezzetin Adresi</p>
+            <div class="absolute bottom-8 left-0 right-0 text-center z-20 px-6">
+                <h1 class="font-serif text-4xl font-bold tracking-wide italic">Seyhan Cafe</h1>
+                <p id="table-text" class="text-[10px] mt-2 font-medium tracking-[0.2em] uppercase bg-black/40 border border-white/10 inline-block px-4 py-1 rounded-full">
+                    ÜSKÜDAR'IN KAHVE NOKTASI
+                </p>
             </div>
         </div>
 
-        <div class="px-5 mt-6 flex-1 flex flex-col justify-start gap-6">
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-stone-200/60 relative overflow-hidden">
-                <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-amber-500"></div>
-                <div class="flex justify-between items-center mb-2 pl-2">
-                    <span class="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md uppercase tracking-wider">Günün Hızlı Önerisi</span>
-                    <span id="proposal-price" class="font-bold text-sm text-stone-900 bg-stone-100 px-2 py-1 rounded-lg border border-stone-200">-- TL</span>
+        <!-- ORTA ALAN: İÇERİK -->
+        <div class="px-5 mt-8 flex-1 flex flex-col justify-start gap-5">
+
+            <!-- GÜNÜN KAHVE ÖNERİSİ -->
+            <div class="card p-5 rounded-2xl relative overflow-hidden">
+                <div class="flex justify-between items-center mb-3">
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Barista Önerisi</span>
+                    <span id="proposal-price" class="font-bold text-xs px-2.5 py-1 rounded-lg price-badge">180 TL</span>
                 </div>
-                <h3 id="proposal-title" class="font-bold text-stone-800 text-base pl-2">Yükleniyor...</h3>
-                <p id="proposal-desc" class="text-xs text-stone-500 mt-1 leading-relaxed pl-2">Dükkanımızın en hızlı servisidir, bekletmez.</p>
+                <h3 id="proposal-title" class="font-bold text-lg tracking-wide">Yükleniyor...</h3>
+                <p id="proposal-desc" class="text-xs mt-1.5 leading-relaxed font-light">Bugünkü özel kahve önerimiz.</p>
             </div>
 
+            <!-- BİLGİ KARTLARI -->
             <div class="grid grid-cols-2 gap-3">
-                <div class="bg-neutral-900 text-white p-3.5 rounded-2xl shadow-sm flex flex-col justify-between h-20 relative overflow-hidden">
-                    <span class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">Dükkan Wi-Fi</span>
-                    <span class="text-sm font-bold tracking-wide text-amber-400">seyhancafe44</span>
+                <div class="card p-4 rounded-2xl flex flex-col justify-between h-24">
+                    <span class="text-[9px] uppercase tracking-widest font-bold opacity-60">Wi-Fi Şifresi</span>
+                    <span class="text-sm font-bold tracking-wide text-white font-mono">seyhancafe44</span>
                 </div>
-                <div class="bg-white text-stone-800 p-3.5 rounded-2xl shadow-sm border border-stone-200/60 flex flex-col justify-between h-20">
-                    <span class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">Çalışma Saatleri</span>
-                    <span class="text-xs font-bold text-stone-700">08:00 - 20:00</span>
+                <div class="card p-4 rounded-2xl flex flex-col justify-between h-24">
+                    <span class="text-[9px] uppercase tracking-widest font-bold opacity-60">Çalışma Saatleri</span>
+                    <span class="text-xs font-bold text-white tracking-wide">08:00 — 20:00</span>
                 </div>
             </div>
         </div>
 
-        <div class="px-5 mt-6">
-            <a id="menu-btn" href="menu.html" class="w-full bg-amber-500 hover:bg-amber-600 text-neutral-950 font-bold text-center py-4 rounded-2xl shadow-md transition transform active:scale-[0.98] flex justify-center items-center gap-2 text-base tracking-wide">
-                <span>📖 Dijital Menüyü Gör</span>
+        <!-- ALT ALAN: BUTON -->
+        <div class="px-5 mt-8">
+            <a id="menu-btn" href="menu.html" class="w-full menu-btn font-semibold text-center py-4 rounded-2xl transition transform active:scale-[0.98] flex justify-center items-center gap-2 text-base tracking-widest uppercase">
+                <span>📖 Menüyü İncele</span>
             </a>
         </div>
     </div>
 
     <script>
-        const kahvaltiOnerileri = [
-            { title: "Çay + Karışık Tost", price: "230 TL", desc: "Taze demlenmiş çay ve dükkanımızın çıtır karışık tostu. En hızlı seçenektir." },
-            { title: "Menemen + Çay", price: "230 TL", desc: "Sıcak köy menemeni yanında tavşan kanı çay ile güne zinde başlayın." },
-            { title: "Kahvaltı Tabağı + Çay", price: "280 TL", desc: "Hızlıca atıştırabileceğiniz zengin tabak çeşidi ve sıcak çay." },
-            { title: "Kaşarlı Tost + Soda", price: "210 TL", desc: "Eriyen kaşarlı tost ve buz gibi ferahlatıcı soda kombinasyonu." }
+        const kahveOnerileri = [
+            { title: "Espresso + Maden Suyu", price: "210 TL", desc: "Özel harman çekirdeklerden yoğun kremsi espresso, yanında damak tazeleyici soğuk soda ile." },
+            { title: "Iced Latte Macchiato", price: "180 TL", desc: "Soğuk süt katmanları ve taze espressonun buzla buluştuğu ferahlık." },
+            { title: "Cappuccino", price: "180 TL", desc: "Yumuşak süt köpüğü ile işlenmiş, dengeli bir İtalyan klasiği." }
         ];
 
         function rastgeleOneriSec() {
-            const index = Math.floor(Math.random() * kahvaltiOnerileri.length);
-            const secilen = kahvaltiOnerileri[index];
+            const index = Math.floor(Math.random() * kahveOnerileri.length);
+            const secilen = kahveOnerileri[index];
             document.getElementById("proposal-title").innerText = secilen.title;
             document.getElementById("proposal-price").innerText = secilen.price;
             document.getElementById("proposal-desc").innerText = secilen.desc;
@@ -117,39 +119,20 @@
 
         const urlParams = new URLSearchParams(window.location.search);
         const masaNo = urlParams.get('masa');
-        
         if (masaNo) {
-            document.getElementById('table-text').innerText = `Masa: ${masaNo} • Dijital Sipariş Ekranı`;
+            document.getElementById('table-text').innerText = `Masa: ${masaNo}`;
             document.getElementById('menu-btn').href = `menu.html?masa=${masaNo}`;
-            document.getElementById('nav-home').href = `index.html?masa=${masaNo}`;
-            document.getElementById('nav-menu').href = `menu.html?masa=${masaNo}`;
-        }
-
-        function toggleMenu() {
-            const menu = document.getElementById('side-menu');
-            const overlay = document.getElementById('menu-overlay');
-            const content = document.getElementById('menu-content');
-
-            if(content.classList.contains('translate-x-full')) {
-                menu.classList.remove('pointer-events-none');
-                overlay.classList.remove('pointer-events-none', 'opacity-0');
-                overlay.classList.add('opacity-100');
-                content.classList.remove('translate-x-full');
-            } else {
-                menu.classList.add('pointer-events-none');
-                overlay.classList.add('pointer-events-none', 'opacity-0');
-                overlay.classList.remove('opacity-100');
-                content.classList.add('translate-x-full');
-            }
         }
 
         var swiper = new Swiper(".mySwiper", {
             loop: true,
-            autoplay: { delay: 3500, disableOnInteraction: false },
+            autoplay: { delay: 4000 },
             pagination: { el: ".swiper-pagination", clickable: true },
         });
-
         rastgeleOneriSec();
+        function toggleMenu() {
+            document.getElementById('menu-content').classList.toggle('translate-x-full');
+        }
     </script>
 </body>
 </html>

@@ -1,0 +1,121 @@
+/* Ana Renk Değişkenleri — Koyu & Yeşil, Sade Palet */
+:root {
+    --ink: #10180F;        /* en koyu zemin */
+    --pine: #1B2A18;       /* kart / yüzey rengi */
+    --pine-soft: #24361F;  /* hover / aktif yüzey */
+    --moss: #5C8A52;       /* ana yeşil vurgu */
+    --moss-soft: #3E5B38;  /* fiyat rozeti, aktif buton zemini */
+    --sage: #9FBB8E;       /* ikincil yazı / ikon rengi */
+    --cream: #E9EAE0;      /* ana yazı rengi */
+    --muted: #6E7C68;      /* soluk / ikincil yazı */
+}
+
+/* Genel Arka Plan ve Metin Temizliği */
+body {
+    background-color: var(--ink) !important;
+    color: var(--cream) !important;
+    font-family: 'Poppins', sans-serif;
+}
+
+.font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Üst Header Alanı */
+header, .bg-dark-olive {
+    background-color: var(--pine) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Kartlar ve İçerik Kutuları — sade, gölgesiz, düz yüzey */
+.card, .menu-card, .bg-black\/20, .bg-black\/10 {
+    background-color: var(--pine) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    box-shadow: none !important;
+}
+
+/* Butonlar ve Rozetler */
+button, .menu-btn {
+    background-color: var(--pine-soft) !important;
+    color: var(--sage) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: none !important;
+}
+
+button:hover, .menu-btn:hover {
+    color: #ffffff !important;
+    background-color: var(--moss-soft) !important;
+}
+
+/* Fiyat Alanları */
+.price-badge {
+    background-color: var(--moss-soft) !important;
+    color: var(--cream) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Başlıklar ve Vurgulanan Yazılar */
+h1, h2, h3, .text-khaki-beige {
+    color: var(--sage) !important;
+}
+
+.text-white {
+    color: #ffffff !important;
+}
+
+/* Kategori Butonları */
+.category-nav button {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+    color: var(--sage) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+.category-nav button.active-cat {
+    background-color: var(--moss-soft) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Arama Kutusu */
+.search-input {
+    background-color: var(--pine) !important;
+    color: var(--cream) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.search-input::placeholder {
+    color: var(--muted) !important;
+}
+
+.search-input:focus {
+    border-color: var(--moss) !important;
+    box-shadow: 0 0 0 3px rgba(92, 138, 82, 0.18) !important;
+}
+
+/* Masa Etiketi */
+.table-tag {
+    background-color: transparent !important;
+    border: 1px solid var(--moss) !important;
+    color: var(--sage) !important;
+}
+
+/* Kategori Şeridi Kenar Geçişi */
+.nav-fade {
+    background: linear-gradient(to right, transparent, var(--ink) 75%);
+}
+
+/* Slider Noktaları (Swiper) */
+.swiper-pagination-bullet {
+    background: var(--cream) !important;
+    opacity: 0.4;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--moss) !important;
+    opacity: 1;
+}
+
+/* Kaydırma Çubuğunu Gizleme */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}

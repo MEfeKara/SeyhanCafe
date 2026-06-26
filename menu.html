@@ -7,170 +7,185 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Poppins', sans-serif; }
-    </style>
-</head>
-<body class="bg-stone-100 text-stone-800 antialiased min-h-screen">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,600;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Harici CSS Sayfamızı Bağlıyoruz -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- YAN AÇILIR MENÜ (SIDEBAR) -->
     <div id="side-menu" class="fixed inset-0 z-50 pointer-events-none">
-        <div id="menu-overlay" onclick="toggleMenu()" class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
-        <div id="menu-content" class="absolute right-0 top-0 bottom-0 w-64 bg-neutral-900 text-white p-6 shadow-2xl transform translate-x-full transition-transform duration-300 pointer-events-auto flex flex-col justify-between">
+        <div id="menu-overlay" onclick="toggleMenu()" class="absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+        <div id="menu-content" class="card absolute right-0 top-0 bottom-0 w-64 p-6 transform translate-x-full transition-transform duration-300 pointer-events-auto flex flex-col justify-between">
             <div>
                 <div class="flex justify-between items-center mb-8">
-                    <h2 class="text-xl font-bold text-amber-500">Seyhan Cafe</h2>
-                    <button onclick="toggleMenu()" class="text-stone-400 hover:text-white text-2xl">&times;</button>
+                    <h2 class="font-serif text-2xl italic">Seyhan Cafe</h2>
+                    <button onclick="toggleMenu()" class="text-3xl transition bg-transparent border-0!">&times;</button>
                 </div>
                 <nav class="flex flex-col gap-4">
-                    <a id="nav-home" href="index.html" class="flex items-center gap-2 py-2 text-stone-300 hover:text-amber-400 transition font-medium">🏠 Ana Sayfa</a>
-                    <a id="nav-menu" href="menu.html" class="flex items-center gap-2 py-2 text-amber-400 transition font-bold">📖 Menü</a>
-                    <hr class="border-stone-800 my-2">
-                    <div class="py-2 text-xs text-stone-400">
-                        <span class="block font-bold text-stone-300 mb-1">📶 Dükkan Wi-Fi:</span>
-                        <span class="bg-stone-800 px-2 py-1 rounded text-amber-400 font-mono">seyhancafe44</span>
-                    </div>
-                    <div class="py-2 text-xs text-stone-400">
-                        <span class="block font-bold text-stone-300 mb-1">🕒 Çalışma Saatleri:</span>
-                        <span>08:00 - 20:00</span>
+                    <a id="nav-home" href="index.html" class="flex items-center gap-2 py-2 transition font-medium tracking-wide">☕ Ana Sayfa</a>
+                    <a id="nav-menu" href="menu.html" class="flex items-center gap-2 py-2 text-white transition font-bold tracking-wide">📖 Menü</a>
+                    <hr class="border-white/5 my-4">
+                    <div class="py-2 text-xs p-3 rounded-xl">
+                        <span class="block font-bold mb-1">📶 Wi-Fi Şifresi:</span>
+                        <span class="text-white font-mono text-sm">seyhancafe44</span>
                     </div>
                 </nav>
             </div>
-            <div class="text-[10px] text-stone-500 text-center border-t border-stone-800 pt-4">
-                Seyhan Cafe Dijital Menü v2.0
+            <div class="text-[10px] text-white/20 text-center border-t border-white/5 pt-4 tracking-widest">
+                #SEYHANCOFFEE
             </div>
         </div>
     </div>
 
-    <header class="bg-neutral-900 text-white py-8 px-4 text-center rounded-b-3xl shadow-lg relative overflow-hidden">
-        <div class="absolute inset-0 bg-black/40 z-0"></div> 
-        
-        <button onclick="toggleMenu()" class="absolute top-4 right-4 z-30 bg-black/30 hover:bg-black/50 text-white p-2.5 rounded-xl border border-white/10 active:scale-95 transition">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+    <!-- MAIN CONTAINER -->
+    <div class="max-w-md mx-auto w-full flex-1 flex flex-col relative">
+
+        <!-- Hamburger Menü Butonu -->
+        <button onclick="toggleMenu()" class="absolute top-4 right-4 z-30 p-2.5 rounded-xl active:scale-95 transition">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
         </button>
 
-        <div class="relative z-10">
-            <h1 id="cafe-name" class="text-3xl font-bold tracking-wide">Seyhan Cafe</h1>
-            <p id="welcome-message" class="text-sm text-stone-300 mt-1">Dijital Menümüze Hoş Geldiniz.</p>
-            
-            <div id="table-badge" class="hidden inline-block mt-3 bg-amber-500 text-neutral-900 text-xs font-bold px-3 py-1 rounded-full shadow">
-                Masa: <span id="table-number">-</span>
+        <!-- ÜST BANNER -->
+        <header class="py-10 px-4 text-center rounded-b-[2.5rem] relative overflow-hidden">
+            <div class="relative z-10">
+                <h1 class="font-serif text-4xl font-bold tracking-wide italic">Seyhan Cafe</h1>
+                <p class="text-xs opacity-60 mt-2 tracking-widest uppercase">ÜSKÜDAR'IN KAHVE NOKTASI</p>
+
+                <div class="flex items-center justify-center gap-2 mt-3 opacity-30">
+                    <span class="h-px w-8 bg-current"></span>
+                    <span class="text-[8px]">●</span>
+                    <span class="h-px w-8 bg-current"></span>
+                </div>
+
+                <div id="table-badge" class="hidden inline-block mt-4 table-tag text-xs font-semibold px-4 py-1.5 rounded-full">
+                    Masa: <span id="table-number">-</span>
+                </div>
             </div>
+        </header>
+
+        <!-- ARAMA KUTUSU -->
+        <div class="px-4 mt-1 mb-4">
+            <input type="text" id="search-input" placeholder="🔍 Ürün ara..."
+                   class="search-input w-full px-4 py-3 rounded-xl text-sm outline-none transition"
+                   oninput="handleSearch(this.value)">
         </div>
-    </header>
 
-    <nav class="flex justify-center gap-2 my-6 px-4 overflow-x-auto no-scrollbar">
-        <button onclick="filterCategory('all')" class="bg-amber-500 text-neutral-900 font-semibold px-4 py-2 rounded-full text-sm shadow transition active:scale-95">Hepsi</button>
-        <button onclick="filterCategory('icecek')" class="bg-white text-stone-700 font-semibold px-4 py-2 rounded-full text-sm shadow transition active:scale-95">İçecekler</button>
-        <button onclick="filterCategory('yiyecek')" class="bg-white text-stone-700 font-semibold px-4 py-2 rounded-full text-sm shadow transition active:scale-95">Yiyecek</button>
-    </nav>
+        <!-- KATEGORİ SEÇİCİLER -->
+        <div class="relative mb-6">
+            <nav class="category-nav flex gap-2.5 px-4 overflow-x-auto no-scrollbar w-full">
+                <button onclick="filterCategory('all', this)" class="active-cat font-bold px-5 py-2.5 rounded-xl text-xs tracking-widest uppercase shrink-0 transition">Hepsi</button>
+                <button onclick="filterCategory('kahve', this)" class="font-semibold px-5 py-2.5 rounded-xl text-xs tracking-widest uppercase shrink-0 transition">☕ Kahveler</button>
+                <button onclick="filterCategory('icecek', this)" class="font-semibold px-5 py-2.5 rounded-xl text-xs tracking-widest uppercase shrink-0 transition">🥤 İçecekler</button>
+                <button onclick="filterCategory('yiyecek', this)" class="font-semibold px-5 py-2.5 rounded-xl text-xs tracking-widest uppercase shrink-0 transition">🍽️ Yiyecekler</button>
+            </nav>
+            <div class="nav-fade pointer-events-none absolute top-0 right-0 bottom-0 w-10"></div>
+        </div>
 
-    <main class="max-w-md mx-auto px-4 pb-12">
-        <div id="menu-container" class="grid gap-5"></div>
-    </main>
+        <!-- MENÜ LİSTESİ -->
+        <main class="px-4 pb-16 flex-1">
+            <div id="menu-container" class="grid gap-4">
+                <!-- JS kartları buraya dolduracak -->
+            </div>
+        </main>
+    </div>
 
-    <footer class="text-center text-xs text-stone-400 pb-6">
-        &copy; 2026 Dijital Menü Sistemi. Tüm hakları saklıdır.
+    <footer class="text-center text-[10px] opacity-40 tracking-wider pb-8 uppercase w-full">
+        &copy; 2026 Seyhan Coffee Co.
     </footer>
 
     <script>
-        // 1. MENÜ VERİLERİ
-        // 1. MENÜ VERİLERİ (Güncellenmiş ve Düzenlenmiş Hali)
         const menuItems = [
-    { id: 1, name: "Çay", price: "30 TL", desc: "Taze demlenmiş geleneksel Türk çayı.", cat: "icecek", img: "https://www.drfirat.com/wp-content/uploads/2020/04/vagecilmez-cay-69241eebefa1f-900x400.webp" },
-    { id: 2, name: "Kahve", price: "100 TL", desc: "Özenle seçilmiş çekirdeklerden sıcak kahve.", cat: "icecek", img: "https://www.kahvve.com/wp-content/uploads/2017/11/%C3%87ay-m%C4%B1-kahve-mi-hangisi-daha-faydal%C4%B1_01.jpg" },
-    { id: 3, name: "Su", price: "30 TL", desc: "İsteyene soğuk isteyene ılık seçeneğimizle ferahlatıcı su.", cat: "icecek", img: "su.png" },
-    { id: 4, name: "Kola Grubu", price: "90 TL", desc: "Kutu soğuk içecek seçenekleri.", cat: "icecek", img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=500&auto=format&fit=crop&q=80" },
-    { id: 5, name: "Gazoz Çeşitleri", price: "45 TL", desc: "Farklı aroma seçenekleriyle ferahlatıcı gazoz.", cat: "icecek", img: "https://atisbutikrestaurant.com.tr/wp-content/uploads/2021/07/meyveli-soda.jpg" },
-    { id: 6, name: "Ayran", price: "30 TL", desc: "Lıkır lıkır soğuk ayran.", cat: "icecek", img: "ayran.png" },
-    { id: 7, name: "Sade Soda", price: "30 TL", desc: "Sade sevenlere ferahlatıcı soda.", cat: "icecek", img: "Sadesoda.png" },
-    { id: 8, name: "Menemen", price: "200 TL", desc: "Bol malzemeli, sıcak köy menemeni.", cat: "yiyecek", img: "https://d17wu0fn6x6rgz.cloudfront.net/img/w/tarif/ogt/ykvmayiswebsite23.webp" },
-    { id: 9, name: "Köfte", price: "250 TL", desc: "Izgaradan taze çıkmış, nefis dükkan köftesi.", cat: "yiyecek", img: "köfte.png" },
-    { id: 10, name: "Kahvaltı Tabağı", price: "250 TL", desc: "Zengin ve taze kahvaltılık çeşitleri.", cat: "yiyecek", img: "https://www.flashrestaurant.com.tr/wp-content/uploads/2012/06/DSC_0078.jpg" },
-    { id: 11, name: "Kaşarlı Tost", price: "180 TL", desc: "Çıtır ekmek arasında eriyen nefis kaşar peyniri.", cat: "yiyecek", img: "https://ersiba.com.tr/wp-content/uploads/2016/05/kasarli-tost.png" },
-    { id: 12, name: "Karışık Tost", price: "200 TL", desc: "Kasap sucuk ve kaşar peynirinin uyumu.", cat: "yiyecek", img: "https://tarifmotoru.com/storage//webcovers/meals/3/546_picture_1765381947.png" }
-];
+            { id: 1, name: "Espresso", price: "180 TL", desc: "Özel harman çekirdeklerimizden gelen yoğun ve gövdeli İtalyan harikası.", cat: "kahve", img: "coffe.png" },
+            { id: 2, name: "Filtre Kahve", price: "180 TL", desc: "Günün her saati taze, yumuşak içimli ve dengeli geleneksel siyah kahve.", cat: "kahve", img: "coffe.png" },
+            { id: 3, name: "Americano", price: "180 TL", desc: "Double espresso özünün sıcak su ile mükemmel birleşimi.", cat: "kahve", img: "coffe.png" },
+            { id: 4, name: "Cappuccino", price: "180 TL", desc: "Espresso, sıcak süt ve yoğun kadifemsi süt köpüğünün uyumu.", cat: "kahve", img: "coffe.png" },
+            { id: 5, name: "Latte Macchiato", price: "180 TL", desc: "Bol sıcak süt ve süt köpüğünün üzerine yavaşça süzülen espresso katmanı.", cat: "kahve", img: "coffe.png" },
+            { id: 6, name: "Iced Coffee", price: "180 TL", desc: "Bol buzlu, ferahlatıcı ve canlandırıcı soğuk filtre kahve.", cat: "kahve", img: "coffe.png" },
+            { id: 7, name: "Iced Latte", price: "180 TL", desc: "Espresso, soğuk süt ve buz küplerinin yaz aylarına özel hafif uyumu.", cat: "kahve", img: "coffe.png" },
+            { id: 8, name: "Çay", price: "30 TL", desc: "Taze demlenmiş geleneksel Türk çayı.", cat: "icecek", img: "https://www.drfirat.com/wp-content/uploads/2020/04/vagecilmez-cay-69241eebefa1f-900x400.webp" },
+            { id: 9, name: "Su", price: "30 TL", desc: "Ferahlatıcı doğal kaynak suyu.", cat: "icecek", img: "su.png" },
+            { id: 10, name: "Kola Grubu", price: "90 TL", desc: "Soğuk kutu içecek alternatifleri.", cat: "icecek", img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=500&auto=format&fit=crop&q=80" },
+            { id: 11, name: "Gazoz Çeşitleri", price: "45 TL", desc: "Farklı aromalı serinletici yerel gazoz çeşitleri.", cat: "icecek", img: "https://atisbutikrestaurant.com.tr/wp-content/uploads/2021/07/meyveli-soda.jpg" },
+            { id: 12, name: "Ayran", price: "30 TL", desc: "Soğuk ve ferahlatıcı geleneksel ayran.", cat: "icecek", img: "ayran.png" },
+            { id: 13, name: "Sade Soda", price: "30 TL", desc: "Serinletici doğal maden suyu.", cat: "icecek", img: "Sadesoda.png" },
+            { id: 14, name: "Menemen", price: "200 TL", desc: "Bol malzemeli, sıcak köy menemeni.", cat: "yiyecek", img: "https://d17wu0fn6x6rgz.cloudfront.net/img/w/tarif/ogt/ykvmayiswebsite23.webp" },
+            { id: 15, name: "Köfte", price: "250 TL", desc: "Izgaradan taze çıkmış, nefis dükkan köftesi.", cat: "yiyecek", img: "köfte.png" },
+            { id: 16, name: "Kahvaltı Tabağı", price: "250 TL", desc: "Zengin ve taze kahvaltılık çeşitleri.", cat: "yiyecek", img: "https://www.flashrestaurant.com.tr/wp-content/uploads/2012/06/DSC_0078.jpg" },
+            { id: 17, name: "Kaşarlı Tost", price: "180 TL", desc: "Çıtır ekmek arasında eriyen nefis kaşar peyniri.", cat: "yiyecek", img: "https://ersiba.com.tr/wp-content/uploads/2016/05/kasarli-tost.png" },
+            { id: 18, name: "Karışık Tost", price: "200 TL", desc: "Kasap sucuğu ve eriyen kaşar peynirinin muazzam uyumu.", cat: "yiyecek", img: "https://tarifmotoru.com/storage//webcovers/meals/3/546_picture_1765381947.png" }
+        ];
 
-        // 2. URL'DEN MASA NUMARASINI ALMA VE MENÜ LİNKLERİNE BAĞLAMA
+        let currentCategory = 'all';
+        let currentSearch = '';
+
         const urlParams = new URLSearchParams(window.location.search);
         const masaNo = urlParams.get('masa');
-
         if (masaNo) {
             document.getElementById('table-badge').classList.remove('hidden');
             document.getElementById('table-number').innerText = masaNo;
-            document.getElementById('welcome-message').innerText = `Masa ${masaNo} için dijital menü`;
-            
-            // Açılır menüdeki linkleri de masa numarasıyla güncelle
             document.getElementById('nav-home').href = `index.html?masa=${masaNo}`;
             document.getElementById('nav-menu').href = `menu.html?masa=${masaNo}`;
         }
 
-        // Açılır Menü Fonksiyonu (Toggle)
-        function toggleMenu() {
-            const menu = document.getElementById('side-menu');
-            const overlay = document.getElementById('menu-overlay');
-            const content = document.getElementById('menu-content');
-
-            if(content.classList.contains('translate-x-full')) {
-                menu.classList.remove('pointer-events-none');
-                overlay.classList.remove('pointer-events-none', 'opacity-0');
-                overlay.classList.add('opacity-100');
-                content.classList.remove('translate-x-full');
-            } else {
-                menu.classList.add('pointer-events-none');
-                overlay.classList.add('pointer-events-none', 'opacity-0');
-                overlay.classList.remove('opacity-100');
-                content.classList.add('translate-x-full');
-            }
+        function getFilteredItems() {
+            const search = currentSearch.trim().toLocaleLowerCase('tr');
+            return menuItems.filter(item => {
+                const matchesCategory = currentCategory === 'all' || item.cat === currentCategory;
+                const matchesSearch = search === '' || item.name.toLocaleLowerCase('tr').includes(search);
+                return matchesCategory && matchesSearch;
+            });
         }
 
-        // 3. PREMIUM OVERLAY TASARIMLI MENÜ FONKSİYONU
         function renderMenu(items) {
             const container = document.getElementById('menu-container');
-            container.innerHTML = ""; 
-
-            items.forEach(item => {
-                const card = `
-                    <div class="relative h-32 rounded-2xl overflow-hidden shadow-md border border-stone-200/40 group active:scale-[0.99] transition duration-200">
-                        <img src="${item.img}" alt="${item.name}" class="absolute inset-0 w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-r from-black/20 via-black/60 to-black/85 z-10"></div>
-                        <div class="absolute inset-0 z-20 p-4 flex justify-between items-center gap-4 text-white">
-                            <div class="min-w-0 flex-1">
-                                <h3 class="font-bold text-lg tracking-wide drop-shadow-md">${item.name}</h3>
-                                <p class="text-xs text-stone-200 mt-1 leading-snug line-clamp-2 font-light drop-shadow-sm">
-                                    ${item.desc || 'Seyhan Cafe kalitesiyle taze olarak servis edilir.'}
-                                </p>
-                            </div>
-                            <div class="flex-shrink-0">
-                                <span class="bg-amber-500 text-neutral-950 font-bold text-sm px-3 py-2 rounded-xl shadow border border-amber-400/30">
-                                    ${item.price}
-                                </span>
-                            </div>
+            if (items.length === 0) {
+                container.innerHTML = `<p class="text-center text-sm opacity-50 py-10">Aradığınız ürün bulunamadı.</p>`;
+                return;
+            }
+            container.innerHTML = items.map(item => `
+                <div class="relative h-32 rounded-2xl overflow-hidden menu-card active:scale-[0.98] transition duration-200">
+                    <img src="${item.img}" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/20 z-10"></div>
+                    <div class="absolute inset-0 z-20 p-4 flex justify-between items-center gap-4 text-white">
+                        <div class="min-w-0 flex-1">
+                            <h3 class="font-bold text-base tracking-wide">${item.name}</h3>
+                            <p class="text-[11px] opacity-70 mt-1 leading-snug line-clamp-2 font-light">${item.desc}</p>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <span class="price-badge font-bold text-xs px-3 py-2 rounded-xl">
+                                ${item.price}
+                            </span>
                         </div>
                     </div>
-                `;
-                container.innerHTML += card;
-            });
+                </div>
+            `).join('');
         }
 
-        // 4. KATEGORİ FİLTRELEME
-        function filterCategory(category) {
-            const buttons = document.querySelectorAll('nav button');
-            buttons.forEach(btn => {
-                btn.className = "bg-white text-stone-700 font-semibold px-4 py-2 rounded-full text-sm shadow transition active:scale-95";
-            });
-            event.target.className = "bg-amber-500 text-neutral-900 font-semibold px-4 py-2 rounded-full text-sm shadow transition active:scale-95";
-
-            if (category === 'all') {
-                renderMenu(menuItems);
-            } else {
-                const filtered = menuItems.filter(item => item.cat === category);
-                renderMenu(filtered);
-            }
+        function updateView() {
+            renderMenu(getFilteredItems());
         }
 
-        // İlk açılışta tüm menüyü göster
-        renderMenu(menuItems);
+        function filterCategory(category, btnEl) {
+            currentCategory = category;
+            document.querySelectorAll('.category-nav button').forEach(btn => btn.classList.remove('active-cat'));
+            btnEl.classList.add('active-cat');
+            updateView();
+        }
+
+        function handleSearch(value) {
+            currentSearch = value;
+            updateView();
+        }
+
+        function toggleMenu() {
+            document.getElementById('menu-content').classList.toggle('translate-x-full');
+        }
+
+        updateView();
     </script>
 </body>
 </html>
